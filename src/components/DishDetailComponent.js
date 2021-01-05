@@ -23,8 +23,6 @@ function date(d) {
     return ans;
 }
 
-    
-
 const DishDetail = (props) => {
     var comments = props.dish.comments.map((comment) => {
         return(
