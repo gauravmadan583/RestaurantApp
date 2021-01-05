@@ -1,10 +1,7 @@
 import React, { Component } from 'react';
-import { Card, CardImg, CardImgOverlay, CardText, CardBody, CardTitle } from 'reactstrap';
+import { Card, CardImg, CardText, CardBody, CardTitle } from 'reactstrap';
 
 class DishDetail extends Component{
-    constructor(props){
-        super(props);
-    }
     date(d) {
         var yr=d.slice(0, 4);
         var mn=d.slice(5, 7);
@@ -27,7 +24,8 @@ class DishDetail extends Component{
         return ans;
     }
     render() {
-        const comments = this.props.dish.comments.map((comment) => {
+
+        var comments = this.props.dish.comments.map((comment) => {
             return(
                 <li key={comment.id} className="unlisted">
                     <p>{comment.comment}</p>
@@ -35,6 +33,7 @@ class DishDetail extends Component{
                 </li>
             );
         })
+        
         return(
             <div className="row">
                 <div className="col-12 col-md-5 m-1">
