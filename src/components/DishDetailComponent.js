@@ -1,6 +1,6 @@
 import React from 'react';
-import { Card, CardImg, CardText, CardBody, CardTitle } from 'reactstrap';
-
+import { Card, CardImg, CardText, CardBody, CardTitle, Breadcrumb, BreadcrumbItem } from 'reactstrap';
+import { Link } from 'react-router-dom';
 function date(d) {
     var yr = d.slice(0, 4);
     var mn = d.slice(5, 7);
@@ -24,7 +24,7 @@ function date(d) {
 }
 
 const DishDetail = (props) => {
-    var comments = props.dish.comments.map((comment) => {
+    var comments = props.comments.map((comment) => {
         return (
             <li key={comment.id} className="unlisted">
                 <p>{comment.comment}</p>
@@ -34,23 +34,37 @@ const DishDetail = (props) => {
     })
 
     return (
-        <div className="row">
-            <div className="col-12 col-md-5 m-1">
-                <Card>
-                    <CardImg width="100%" object src={props.dish.image} />
-                    <CardBody>
-                        <CardTitle>{props.dish.name}</CardTitle>
-                        <CardText>{props.dish.description}</CardText>
-                    </CardBody>
-                </Card>
+        <div className="container">
+            <div className="row">
+                <Breadcrumb>
+                    <BreadcrumbItem><Link to='/menu'>Menu</Link></BreadcrumbItem>
+                    <BreadcrumbItem active>{props.dish.name}</BreadcrumbItem>
+                </Breadcrumb>
+                <div className="col-12">
+                    <h3>{props.dish.name}</h3>
+                    <hr></hr>
+                </div>
             </div>
-            <div className="col-12 col-md-5 m-1">
-                <h4>Comments</h4>
-                <ul>
-                    {comments}
-                </ul>
+            <div className="row">
+
+                <div className="col-12 col-md-5 m-1">
+                    <Card>
+                        <CardImg width="100%" object src={props.dish.image} />
+                        <CardBody>
+                            <CardTitle>{props.dish.name}</CardTitle>
+                            <CardText>{props.dish.description}</CardText>
+                        </CardBody>
+                    </Card>
+                </div>
+                <div className="col-12 col-md-5 m-1">
+                    <h4>Comments</h4>
+                    <ul>
+                        {comments}
+                    </ul>
+                </div>
             </div>
         </div>
+
     );
 }
 
