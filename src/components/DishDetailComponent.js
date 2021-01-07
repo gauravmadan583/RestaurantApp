@@ -2,9 +2,9 @@ import React from 'react';
 import { Card, CardImg, CardText, CardBody, CardTitle } from 'reactstrap';
 
 function date(d) {
-    var yr=d.slice(0, 4);
-    var mn=d.slice(5, 7);
-    var dt=d.slice(8, 10);
+    var yr = d.slice(0, 4);
+    var mn = d.slice(5, 7);
+    var dt = d.slice(8, 10);
     let mp = new Map();
     mp["01"] = "Jan";
     mp["02"] = "Feb";
@@ -25,19 +25,19 @@ function date(d) {
 
 const DishDetail = (props) => {
     var comments = props.dish.comments.map((comment) => {
-        return(
+        return (
             <li key={comment.id} className="unlisted">
                 <p>{comment.comment}</p>
                 <p>-- {comment.author}, {date(comment.date)}</p>
             </li>
         );
     })
-    
-    return(
+
+    return (
         <div className="row">
             <div className="col-12 col-md-5 m-1">
                 <Card>
-                    <CardImg width="100%" object src={props.dish.image}/>
+                    <CardImg width="100%" object src={props.dish.image} />
                     <CardBody>
                         <CardTitle>{props.dish.name}</CardTitle>
                         <CardText>{props.dish.description}</CardText>
