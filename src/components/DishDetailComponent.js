@@ -24,15 +24,13 @@ class CommentForm extends Component {
 
     toggleModal() {
         console.log("toggle Modal");
-
         this.setState({
             modalOpen: !this.state.modalOpen
         });
     }
 
     handleSubmit(values) {
-        console.log("Current state is " + JSON.stringify(values));
-        alert("Current state is " + JSON.stringify(values));
+        this.props.addComment(this.props.dishId, values.rating, values.yourname, values.comment);
         this.toggleModal();
     }
 
@@ -159,7 +157,7 @@ const DishDetail = (props) => {
                     <ul>
                         {comments}
                     </ul>
-                    <CommentForm></CommentForm>
+                    <CommentForm addComment={props.addComment} dishId={props.dish.id}></CommentForm>
                 </div>
             </div>
         </div>
