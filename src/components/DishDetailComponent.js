@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
-import { Card, CardImg, CardText, CardBody, CardTitle, Breadcrumb, BreadcrumbItem, Button, Label, Row, Col,
-        Modal, ModalBody, ModalHeader } from 'reactstrap';
+import {
+    Card, CardImg, CardText, CardBody, CardTitle, Breadcrumb, BreadcrumbItem, Button, Label, Row, Col,
+    Modal, ModalBody, ModalHeader
+} from 'reactstrap';
 import { Link } from 'react-router-dom';
 import { Control, LocalForm, Errors } from 'react-redux-form';
-
+import { Loading } from './LoadingComponent';
 
 const required = (val) => val && val.length;
 const maxLength = (len) => (val) => !(val) || (val.length <= len);
@@ -120,6 +122,7 @@ function date(d) {
 }
 
 const DishDetail = (props) => {
+
     var comments = props.comments.map((comment) => {
         return (
             <li key={comment.id} className="unlisted">
@@ -129,6 +132,21 @@ const DishDetail = (props) => {
         );
     })
 
+    if (props.isLoading) {
+        return (
+            <div className="container">
+                <div className="row">
+                    <Loading></Loading>
+                </div>
+            </div>
+        )
+    } else if (props.errmss) {
+        <div className="container">
+            <div className="row">
+                <h4>{props.errmess}</h4>
+            </div>
+        </div>
+    }
     return (
         <div className="container">
             <div className="row">
