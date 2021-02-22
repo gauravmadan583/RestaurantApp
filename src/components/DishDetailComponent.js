@@ -33,7 +33,7 @@ class CommentForm extends Component {
     }
 
     handleSubmit(values) {
-        this.props.addComment(this.props.dishId, values.rating, values.yourname, values.comment);
+        this.props.postComment(this.props.dishId, values.rating, values.yourname, values.comment);
         this.toggleModal();
     }
 
@@ -176,7 +176,7 @@ const DishDetail = (props) => {
                     <ul>
                         {comments}
                     </ul>
-                    <CommentForm addComment={props.addComment} dishId={props.dish.id}></CommentForm>
+                    <CommentForm postComment={props.postComment} dishId={props.dish.id}></CommentForm>
                 </div>
             </div>
         </div>
