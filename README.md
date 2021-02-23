@@ -1,3 +1,5 @@
 # **First React App**
 
-Built this Web Application while learning React.JS from Coursera course.
+Built a Web Application for a restaurant using ReactJS
+
+I built this Web Application while learning React.JS from Coursera course.
