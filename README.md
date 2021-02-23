@@ -1,3 +1,3 @@
-##First React App
+# **First React App**
 
-Built this Web Application while learning React.JS
+Built this Web Application while learning React.JS from Coursera course.
