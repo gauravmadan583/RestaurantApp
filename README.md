@@ -1,4 +1,4 @@
-# **First React App**
+# **Restaurant App**
 
 Built a Web Application for a restaurant using ReactJS
 
